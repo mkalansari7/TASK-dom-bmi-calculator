@@ -9,9 +9,12 @@ function calculateBMI() {
 
   // You are going to write the code here before the curly braces 👇🏻
   height /= 100; 
-  let bmi = (weight / (height^2));
-  alert(bmi);
-  let bmiState = "";
+  const bmi = (weight / (height ** 2));
+
+  let gender = male ? "Male" : "Female"
+
+  let bmiState;
+  let bmiStateP;
   if (bmi < 18.5) {
     bmiState = "Underweight";
   } else if (bmi >=18.5 && bmi <= 24.9) {
@@ -19,9 +22,51 @@ function calculateBMI() {
   } else if (bmi>= 25 && bmi <= 29.9) {
     bmiState = "Overweight";
   } else {
-    bmiState = "Avbve Obesity";
+    bmiState = "Above Obesity";
   }
-  alert(bmiState);
+
+  if (age < 24 ) {
+    if (bmi < 18.5) {
+      bmiStateP = "Underweight";
+    } else if (bmi >=18.5 && bmi <= 24.9) {
+      bmiStateP = "Healthy Weight";
+    } else if (bmi>= 25 && bmi <= 29.9) {
+      bmiStateP = "Overweight";
+    } else {
+      bmiStateP = "Above Obesity";
+    }
+  } else if (age < 34){
+    if (bmi < 20.5) {
+      bmiStateP = "Underweight";
+    } else if (bmi >= 20.5 && bmi <= 26.9) {
+      bmiStateP = "Healthy Weight";
+    } else if (bmi>= 27 && bmi <= 31.9) {
+      bmiStateP = "Overweight";
+    } else {
+      bmiStateP = "Above Obesity";
+    }
+  } else {
+    if (bmi < 22.5) {
+    bmiStateP = "Underweight";
+  } else if (bmi >=22.5 && bmi <= 28.9) {
+    bmiStateP = "Healthy Weight";
+  } else if (bmi>= 29 && bmi <= 33.9) {
+    bmiStateP = "Overweight";
+  } else {
+    bmiStateP = "Above Obesity";
+  }
+  }
+
+  alert(`
+  Weight: ${weight}
+  Height: ${height}
+  Age: ${age}
+  Gender: ${gender}
+  -----------
+  BMI: ${bmi}
+  BMI State: ${bmiState}
+  BMI State Based on your age: ${bmiStateP}`);
+  
 
 
  
